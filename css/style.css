@@ -85,7 +85,7 @@ em,i{font-style:italic}
 .site-nav ol{display:grid;gap:4px}
 .site-nav ol a{display:flex;align-items:baseline;gap:18px;padding:12px 0;font:400 clamp(32px,9.5vw,48px)/1.1 var(--serif);letter-spacing:-.02em;border-bottom:1px solid rgba(255,255,255,.08);transition:color .25s,padding .3s var(--ease)}
 .site-nav ol a:hover{color:var(--gold);padding-left:8px}
-.site-nav .idx{font:700 10px/1 var(--sans);letter-spacing:.2em;color:var(--gold)}
+.site-nav .idx{min-width:32px;font:700 10px/1 var(--sans);letter-spacing:.2em;color:var(--gold)}
 .nav-cta{display:inline-flex;justify-content:space-between;gap:16px;margin-top:34px;padding:17px 20px;border:1px solid var(--gold);color:var(--gold);text-transform:uppercase;letter-spacing:.12em;font-size:11px;font-weight:700;transition:background .25s,color .25s}
 .nav-foot{margin-top:22px;font-size:12px;color:var(--mist)}
 
@@ -375,6 +375,13 @@ em,i{font-style:italic}
   .faq-head{position:sticky;top:110px}
   .faq-list{margin-top:0}
   .faq h2{font-size:clamp(56px,5vw,80px)}
+}
+
+/* Pautan FAQ dalam menu: label penuh di telefon, "FAQ" di desktop */
+.nav-short{display:none}
+@media (min-width:1024px){
+  .site-nav .nav-long{display:none}
+  .site-nav .nav-short{display:inline}
 }
 /* =====================================================================
    TABLET ≥ 700px
