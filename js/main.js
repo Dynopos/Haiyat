@@ -234,7 +234,7 @@ function updateMini(){
     const lit = Math.round(ratio * bars.length);
     bars.forEach((b, i) => b.classList.toggle('on', i < lit));
     seek.value = t;
-    timeEl.textContent = (t > 0 && !audio.ended) ? fmt(t) : fmt(d);
+    timeEl.textContent = (t > 0 && !audio.ended) ? fmt(t) : fmt(Math.round(d));
   }
 
   playBtn.addEventListener('click', toggle);

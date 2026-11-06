@@ -32,13 +32,13 @@ robots.txt, netlify.toml, .nojekyll
 - **Nombor WhatsApp:** `js/main.js` → `const WHATSAPP_NUMBER = '60132510181';`
   (Nombor dalam teks `013-251 0181` dan `telephone` dalam JSON-LD di `index.html` juga perlu dikemas kini jika bertukar.)
 - **Lagu:** Pelayar tidak membenarkan audio bermain tanpa interaksi pengguna, jadi lagu bermula
-  pada **sentuhan / klik pertama di mana-mana** pada halaman dan berulang (loop). Pengunjung boleh
+  pada **sentuhan / klik pertama di mana-mana** pada halaman dan dimainkan **sekali sahaja** (tidak berulang). Pengunjung boleh
   jeda melalui pemain voice note dalam hero atau butang "Lagu Haiyat" di penjuru kiri bawah.
   Untuk tukar lagu, ganti kedua-dua fail dalam `assets/audio/` (nama sama) dan kemas kini
   `FALLBACK_DURATION` dalam `js/main.js` serta `0:50` / `max="50"` dalam `index.html`.
   Lagu semasa dipotong kepada 50 saat (fade-out 3 saat di hujung).
-  Untuk matikan auto-main, buang blok `armAutoStart()` dalam `js/main.js`, dan buang atribut `loop`
-  pada `<audio>` jika lagu tidak perlu berulang.
+  Untuk matikan auto-main, buang blok `armAutoStart()` dalam `js/main.js`, Untuk jadikan lagu berulang,
+  tambah atribut `loop` pada `<audio id="vn-audio">`.
 
 ## Deploy ke Netlify
 
