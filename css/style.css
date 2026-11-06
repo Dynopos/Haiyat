@@ -111,7 +111,10 @@ em,i{font-style:italic}
 .hero-emblem.intro-anim{opacity:0;transform:scale(.82);filter:blur(10px);animation:emblemIn 1.7s var(--ease) forwards;animation-delay:var(--d,0s)}
 
 .hero-index{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.75);margin-bottom:18px}
-.hero-index span{color:var(--gold);margin:0 6px}
+.hero-index .sep{display:none;color:var(--gold);margin:0 6px}
+.hero-index .hi-a,.hero-index .hi-b{display:block}
+.hero-index .hi-b{margin-top:6px;color:var(--gold)}
+@media (min-width:700px){.hero-index .hi-a,.hero-index .hi-b{display:inline}.hero-index .sep{display:inline}.hero-index .hi-b{margin-top:0;color:inherit}}
 .hero h1{font:400 clamp(50px,13.5vw,80px)/1.02 var(--serif);letter-spacing:-.05em}
 .hero h1 .mask{display:block;overflow:hidden;padding-bottom:.08em;margin-bottom:-.08em}
 .hero h1 .mask > span{display:block}
@@ -342,6 +345,36 @@ em,i{font-style:italic}
   .nav-social{display:none}
   .top-social{order:2;margin:0 0 0 22px}
   .top-social a{width:42px;height:42px}
+}
+
+/* ---------- Soalan lazim (SEO + GEO) ---------- */
+.faq{--accent:var(--gold-deep);background:var(--cream);color:var(--ink);padding:88px 0}
+.faq h2{font:400 clamp(40px,10.5vw,60px)/1.06 var(--serif);letter-spacing:-.035em;margin-top:22px}
+.faq h2 em{color:var(--gold-deep)}
+.faq-head > p:last-child{margin-top:22px;max-width:400px;font-size:14px;line-height:1.85;color:var(--muted)}
+.faq-list{margin-top:40px;border-bottom:1px solid #c9c4b9}
+.faq details{border-top:1px solid #c9c4b9}
+.faq summary{display:grid;grid-template-columns:34px 1fr 22px;align-items:start;gap:10px;padding:22px 0;cursor:pointer;list-style:none}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary:hover h3{color:var(--gold-deep)}
+.faq-n{padding-top:6px;font-size:11px;font-weight:700;letter-spacing:.1em;color:var(--gold-deep)}
+.faq summary h3{font:400 21px/1.3 var(--serif);letter-spacing:-.01em;transition:color .25s}
+.faq-icon{position:relative;width:22px;height:22px;margin-top:3px}
+.faq-icon::before,.faq-icon::after{content:'';position:absolute;left:3px;right:3px;top:50%;height:1px;background:var(--gold-deep);transition:transform .35s var(--ease)}
+.faq-icon::after{transform:rotate(90deg)}
+.faq details[open] .faq-icon::after{transform:rotate(0)}
+.faq details p{padding:0 0 24px 44px;max-width:720px;font-size:14.5px;line-height:1.85;color:var(--muted)}
+@media (min-width:700px){
+  .faq{padding:110px 0}
+  .faq h2{font-size:clamp(52px,7vw,72px)}
+  .faq summary h3{font-size:24px}
+}
+@media (min-width:1024px){
+  .faq{padding:140px 0}
+  .faq-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:7vw;align-items:start}
+  .faq-head{position:sticky;top:110px}
+  .faq-list{margin-top:0}
+  .faq h2{font-size:clamp(56px,5vw,80px)}
 }
 /* =====================================================================
    TABLET ≥ 700px

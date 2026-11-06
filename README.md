@@ -52,25 +52,35 @@ Build command: *(kosong)*. Publish directory: `.`
 Repo → *Settings → Pages* → *Deploy from a branch* → pilih branch (contoh `main`) dan folder `/ (root)`.
 Semua laluan adalah relatif, jadi laman berfungsi di domain sendiri atau sub-folder GitHub Pages.
 
-## Selepas domain disahkan (SEO)
+## SEO & GEO (sudah dipasang)
 
-Tambah dalam `<head>` `index.html` (ganti `https://domain-anda.com`):
+**Dalam laman:**
+- Tajuk & meta description berkata kunci ("Bina Rumah Atas Tanah Sendiri Kelantan"), `canonical`, `lang="ms-MY"`,
+  meta geo (MY-03 Kelantan / Tanah Merah), Open Graph & Twitter Card dengan URL penuh (pratonton cantik di FB/WhatsApp).
+- Data berstruktur JSON-LD (`@graph`): Organization, HomeAndConstructionBusiness/GeneralContractor (alamat, peta,
+  telefon, Facebook, TikTok), dua Service, tiga Offer pakej dengan harga per kaki persegi (MYR), WebSite, WebPage, FAQPage.
+- Seksyen **Soalan Lazim** (7 soalan) yang kelihatan pada laman, sepadan dengan FAQPage. Format soal-jawab inilah
+  yang paling mudah dipetik oleh Google AI Overviews, ChatGPT, Perplexity dan Gemini.
+- `sitemap.xml` (dengan imej), `robots.txt` (membenarkan Googlebot dan bot AI: GPTBot, OAI-SearchBot, ClaudeBot,
+  PerplexityBot, Google-Extended, Applebot-Extended), dan `llms.txt` (ringkasan fakta dwibahasa khas untuk AI).
+- Tarikh "Maklumat dikemas kini" di footer + `dateModified`. Kemas kini tarikh ini setiap kali kandungan berubah.
 
-```html
-<link rel="canonical" href="https://domain-anda.com/">
-<meta property="og:url" content="https://domain-anda.com/">
-```
+**Perlu dibuat oleh pemilik (di luar laman, paling besar kesannya):**
+1. **Google Search Console:** https://search.google.com/search-console → *Add property → URL prefix* →
+   `https://dynopos.github.io/Haiyat/` → pilih *HTML tag* → hantar tag itu kepada developer untuk dimasukkan.
+   Selepas disahkan: *Sitemaps* → hantar `sitemap.xml`, dan *URL Inspection* → *Request indexing*.
+2. **Google Business Profile** (faktor No.1 SEO tempatan / Google Maps): https://business.google.com.
+   Guna nama, alamat dan telefon yang **sama tepat** seperti di laman (NAP), kategori "Kontraktor pembinaan" /
+   "Pembina rumah", pautkan laman web, muat naik foto projek sebenar.
+3. **Bing Webmaster Tools** (ChatGPT search menggunakan indeks Bing): https://www.bing.com/webmasters →
+   import dari Google Search Console → hantar sitemap.
+4. Letak pautan laman web pada bio Facebook dan TikTok (@haiyatgroup), dan di Google Business Profile.
+5. Minta ulasan Google **sebenar** daripada pelanggan. Jangan cipta ulasan palsu.
 
-Tukar `og:image` dan `logo` (JSON-LD) kepada URL penuh, cipta `sitemap.xml`:
-
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://domain-anda.com/</loc></url>
-</urlset>
-```
-
-Tambah `Sitemap: https://domain-anda.com/sitemap.xml` dalam `robots.txt`, dan hantar ke Google Search Console.
+**Nota GitHub Pages:** untuk laman projek (`/Haiyat/`), enjin carian membaca `robots.txt` di akar domain
+(`dynopos.github.io/robots.txt`), bukan dalam folder ini; jadi sitemap mesti dihantar melalui Search Console.
+Jika domain sendiri dipasang kelak, tukar semua `https://dynopos.github.io/Haiyat/` dalam `index.html`,
+`sitemap.xml`, `robots.txt`, `llms.txt` dan laluan `/Haiyat/` dalam `404.html`.
 
 ## Senarai semak sebelum go-live
 
