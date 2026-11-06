@@ -1,55 +1,55 @@
-# Haiyat Global Group: Laman Web Rasmi
+# Haiyat Global Group: Laman Web Rasmi (Cinematic Edition)
 
-Laman web statik (HTML, CSS, JS tanpa build) bertema **Cinematic Luxury**: navy, gold dan putih.
-Fokus kepada dua servis utama:
+Laman web statik (HTML, CSS, JS tanpa build) bertema **Cinematic Luxury**: navy, gold dan putih,
+tipografi editorial (Playfair Display) dan penceritaan secara babak (01–06) semasa skrol.
 
-1. **Bina & Jual Rumah**: 46 lot dalam perancangan (Padang Siam 6, Jelatok 15, Manal 1, Kubang Gali 12, Machang 12).
-2. **Bina Rumah Atas Tanah Sendiri**: 3 pakej (Bronze, Silver, Gold).
+| Babak | Kandungan |
+|---|---|
+| 01 Visi | Hero skrin penuh: logo GHG, foto rumah sebenar, overlay navy, voice note lagu |
+| 02 Kisah | Mengenai Haiyat, 46 lot / 5 lokasi / 3 pakej |
+| 03 Lokasi | Bina & Jual Rumah: Padang Siam 6, Jelatok 15, Manal 1, Kubang Gali 12, Machang 12 (46 lot dalam perancangan) |
+| 04 Pakej | Bina atas tanah sendiri: Bronze RM165/kaki², Silver RM175/kaki², Gold melebihi RM195/kaki² |
+| 05 Pembinaan | Slider sinematik mendatar (leret / seret / butang / anak panah papan kekunci) + proses kerja |
+| 06 Hubungi | WhatsApp 013-251 0181, emel, Facebook, TikTok, alamat |
 
 ## Struktur fail
 
 ```
-index.html      Laman utama (SEO, Open Graph, data berstruktur JSON-LD)
-404.html        Halaman ralat
-css/style.css   Gaya & reka bentuk responsif (telefon ≤620px, tablet ≤960px, desktop)
-js/main.js      WhatsApp CTA, menu mudah alih, animasi skrol, kiraan nombor, lightbox galeri
-assets/         Semua 7 gambar asal (tidak diubah)
-favicon.svg     Ikon laman
-robots.txt      Benarkan enjin carian
-netlify.toml    Tetapan Netlify (header keselamatan & cache)
-.nojekyll       Untuk GitHub Pages
+index.html               Laman utama (SEO, Open Graph, JSON-LD)
+404.html                 Halaman ralat
+css/style.css            Gaya mobile-first (asas telefon, ≥700px tablet, ≥1024px desktop)
+js/main.js               WhatsApp, menu, penunjuk babak, animasi skrol, slider, voice note
+assets/*.jpg             7 foto projek asal (tidak diubah)
+assets/logo-ghg.webp     Logo GHG untuk hero (PNG sebagai sandaran: logo-ghg.png)
+assets/logo-ghg-128.png  Logo kecil untuk navigasi / footer
+assets/audio/            Lagu voice note: .ogg (Opus) + .m4a (AAC untuk iPhone/Safari lama)
+favicon.png, apple-touch-icon.png, icon-192.png
+robots.txt, netlify.toml, .nojekyll
 ```
 
-## Tukar nombor WhatsApp
+## Tetapan penting
 
-Buka `js/main.js`, ubah baris:
-
-```js
-const WHATSAPP_NUMBER = '60132510181';
-```
-
-Format: `601XXXXXXXX` tanpa `+`, sengkang atau ruang. Nombor yang dipaparkan dalam teks
-(`013-251 0181`) dan `telephone` dalam JSON-LD di `index.html` juga perlu dikemas kini jika nombor bertukar.
+- **Nombor WhatsApp:** `js/main.js` → `const WHATSAPP_NUMBER = '60132510181';`
+  (Nombor dalam teks `013-251 0181` dan `telephone` dalam JSON-LD di `index.html` juga perlu dikemas kini jika bertukar.)
+- **Lagu:** Pelayar tidak membenarkan audio bermain tanpa interaksi pengguna, jadi lagu bermula
+  pada **sentuhan / klik pertama di mana-mana** pada halaman dan berulang (loop). Pengunjung boleh
+  jeda melalui pemain voice note dalam hero atau butang "Lagu Haiyat" di penjuru kiri bawah.
+  Untuk tukar lagu, ganti kedua-dua fail dalam `assets/audio/` (nama sama) dan kemas kini
+  `FALLBACK_DURATION` dalam `js/main.js` serta `1:04` / `max="64"` dalam `index.html`.
+  Untuk matikan auto-main, buang blok `armAutoStart()` dalam `js/main.js`, dan buang atribut `loop`
+  pada `<audio>` jika lagu tidak perlu berulang.
 
 ## Deploy ke Netlify
 
-**Cara paling mudah (drag & drop):**
-1. Log masuk ke https://app.netlify.com
-2. *Add new site → Deploy manually*
-3. Seret seluruh folder projek (yang mengandungi `index.html`) ke kotak upload.
+**Drag & drop:** https://app.netlify.com → *Add new site → Deploy manually* → seret seluruh folder projek.
 
-**Melalui GitHub:**
-1. *Add new site → Import an existing project → GitHub* dan pilih repo ini.
-2. Build command: *(kosongkan)*. Publish directory: `.`
-3. Klik *Deploy*. Tetapan diambil daripada `netlify.toml`.
+**Melalui GitHub:** *Add new site → Import an existing project → GitHub* → pilih repo.
+Build command: *(kosong)*. Publish directory: `.`
 
 ## Deploy ke GitHub Pages
 
-1. Repo → *Settings → Pages*.
-2. *Source: Deploy from a branch*. Pilih branch (contoh `main`) dan folder `/ (root)`.
-3. Simpan. Laman akan tersedia di `https://<username>.github.io/<nama-repo>/` dalam beberapa minit.
-
-Semua laluan adalah relatif, jadi laman berfungsi sama ada di domain sendiri atau sub-folder GitHub Pages.
+Repo → *Settings → Pages* → *Deploy from a branch* → pilih branch (contoh `main`) dan folder `/ (root)`.
+Semua laluan adalah relatif, jadi laman berfungsi di domain sendiri atau sub-folder GitHub Pages.
 
 ## Selepas domain disahkan (SEO)
 
@@ -60,9 +60,7 @@ Tambah dalam `<head>` `index.html` (ganti `https://domain-anda.com`):
 <meta property="og:url" content="https://domain-anda.com/">
 ```
 
-Tukar `og:image` kepada URL penuh: `https://domain-anda.com/assets/hero.jpg`.
-
-Kemudian cipta `sitemap.xml`:
+Tukar `og:image` dan `logo` (JSON-LD) kepada URL penuh, cipta `sitemap.xml`:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -71,15 +69,17 @@ Kemudian cipta `sitemap.xml`:
 </urlset>
 ```
 
-Tambah baris `Sitemap: https://domain-anda.com/sitemap.xml` dalam `robots.txt`, dan hantar ke Google Search Console.
+Tambah `Sitemap: https://domain-anda.com/sitemap.xml` dalam `robots.txt`, dan hantar ke Google Search Console.
 
 ## Senarai semak sebelum go-live
 
-- [ ] Kadar pakej (RM165 / RM175 / melebihi RM195 per kaki²) dan spesifikasi disahkan semula dengan dokumen Jun 2026.
-- [ ] Alamat PT 4724, Bandar Baru, Taman Kota Harmoni, 17500 Tanah Merah disahkan.
+- [ ] **Emel:** laman guna `haiyatgroup8@gmail.com` (diberi terus oleh pemilik). Fail V2 menyebut
+      `haiyatglobalgroup8@gmail.com`. Sahkan yang mana betul.
+- [ ] Kadar pakej (RM165 / RM175 / melebihi RM195 per kaki²) dan spesifikasi disahkan dengan dokumen Jun 2026.
+- [ ] Alamat Tanah Merah, alamat pejabat berdaftar KL dan No. syarikat (1414816-W) disahkan.
 - [ ] Bilangan lot setiap lokasi disahkan. Semua lot dilabel **perancangan**, bukan projek siap atau telah diluluskan.
-- [ ] `completed.jpg` kekal dilabel sebagai **visual konsep / ilustrasi**, bukan foto rumah siap.
-- [ ] Kebenaran penggunaan semua foto projek telah diperoleh.
-- [ ] Pautan Facebook, TikTok (@haiyatgroup), emel haiyatgroup8@gmail.com dan nombor WhatsApp diuji di telefon.
+- [ ] `completed.jpg` kekal dilabel **visual konsep / ilustrasi**.
+- [ ] Kebenaran penggunaan foto projek, logo dan lagu telah diperoleh.
+- [ ] Pautan Facebook, TikTok (@haiyatgroup), emel dan WhatsApp diuji di telefon.
 
-Tiada harga, spesifikasi, testimoni atau status kelulusan tambahan dicipta. Semua kandungan berdasarkan fail asal yang dibekalkan.
+Tiada harga, spesifikasi, testimoni atau status kelulusan tambahan dicipta. Semua kandungan berdasarkan fail yang dibekalkan.
