@@ -35,7 +35,8 @@ robots.txt, netlify.toml, .nojekyll
   pada **sentuhan / klik pertama di mana-mana** pada halaman dan berulang (loop). Pengunjung boleh
   jeda melalui pemain voice note dalam hero atau butang "Lagu Haiyat" di penjuru kiri bawah.
   Untuk tukar lagu, ganti kedua-dua fail dalam `assets/audio/` (nama sama) dan kemas kini
-  `FALLBACK_DURATION` dalam `js/main.js` serta `1:04` / `max="64"` dalam `index.html`.
+  `FALLBACK_DURATION` dalam `js/main.js` serta `0:50` / `max="50"` dalam `index.html`.
+  Lagu semasa dipotong kepada 50 saat (fade-out 3 saat di hujung).
   Untuk matikan auto-main, buang blok `armAutoStart()` dalam `js/main.js`, dan buang atribut `loop`
   pada `<audio>` jika lagu tidak perlu berulang.
 

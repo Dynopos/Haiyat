@@ -205,7 +205,7 @@ function updateMini(){
   const seek = $('#vn-seek');
   const timeEl = $('#vn-time');
   const bars = $$('.vn-bars i', voice);
-  const FALLBACK_DURATION = 64; // saat (panjang lagu)
+  const FALLBACK_DURATION = 50; // saat (panjang lagu)
   const dur = () => (isFinite(audio.duration) && audio.duration > 0) ? audio.duration : FALLBACK_DURATION;
   const fmt = s => { s = Math.max(0, Math.floor(s || 0)); return Math.floor(s / 60) + ':' + String(s % 60).padStart(2, '0'); };
 
