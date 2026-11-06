@@ -40,6 +40,10 @@ robots.txt, netlify.toml, .nojekyll
   Untuk matikan auto-main, buang blok `armAutoStart()` dalam `js/main.js`, Untuk jadikan lagu berulang,
   tambah atribut `loop` pada `<audio id="vn-audio">`.
 
+- **Cache pelayar:** pautan CSS/JS dalam `index.html` ada nombor versi (`style.css?v=20261106-1`).
+  Setiap kali `css/style.css` atau `js/main.js` diubah, naikkan nombor itu (contoh `20261107-1`)
+  supaya telefon pengunjung terus memuat turun fail baharu dan tidak guna salinan lama.
+
 ## Deploy ke Netlify
 
 **Drag & drop:** https://app.netlify.com → *Add new site → Deploy manually* → seret seluruh folder projek.
