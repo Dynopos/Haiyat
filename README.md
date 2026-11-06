@@ -52,6 +52,13 @@ Build command: *(kosong)*. Publish directory: `.`
 Repo → *Settings → Pages* → *Deploy from a branch* → pilih branch (contoh `main`) dan folder `/ (root)`.
 Semua laluan adalah relatif, jadi laman berfungsi di domain sendiri atau sub-folder GitHub Pages.
 
+### Jika deploy GitHub Pages gagal / tersangkut
+
+Semak di https://github.com/Dynopos/Haiyat/actions (run "pages build and deployment").
+Ralat "due to in progress deployment" bermakna deploy lama masih berjalan: tunggu ia selesai,
+atau buka run itu → **Cancel workflow**, kemudian buka run terbaru yang gagal → **Re-run jobs → Re-run failed jobs**
+(butang di penjuru kanan atas, hanya muncul selepas run selesai). Push baharu ke `main` juga akan memulakan deploy baharu.
+
 ## SEO & GEO (sudah dipasang)
 
 **Dalam laman:**
