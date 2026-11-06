@@ -243,6 +243,7 @@ p{line-height:1.75}
   .hero h1{font-size:clamp(38px,11vw,58px)}
   .hero p{font-size:14px}
   .actions .btn{flex:1 1 100%}
+  .contact .actions .btn-outline{flex:1 1 40%}
   .hero-bottom{font-size:9px;bottom:22px}
   .hero-bottom span:last-child{display:none}
   .intro,.packages,.gallery-section,.process,.dark-section{padding:72px 0}

@@ -80,6 +80,6 @@ Tambah baris `Sitemap: https://domain-anda.com/sitemap.xml` dalam `robots.txt`, 
 - [ ] Bilangan lot setiap lokasi disahkan. Semua lot dilabel **perancangan**, bukan projek siap atau telah diluluskan.
 - [ ] `completed.jpg` kekal dilabel sebagai **visual konsep / ilustrasi**, bukan foto rumah siap.
 - [ ] Kebenaran penggunaan semua foto projek telah diperoleh.
-- [ ] Pautan Facebook dan nombor WhatsApp diuji di telefon.
+- [ ] Pautan Facebook, TikTok (@haiyatgroup), emel haiyatgroup8@gmail.com dan nombor WhatsApp diuji di telefon.
 
 Tiada harga, spesifikasi, testimoni atau status kelulusan tambahan dicipta. Semua kandungan berdasarkan fail asal yang dibekalkan.
